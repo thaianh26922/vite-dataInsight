@@ -70,7 +70,7 @@ const ManageWebsite = () => {
                 {/* Phần biểu đồ tiến độ */}
                 <Row gutter={16}>
                     <Col xs={24} sm={12} md={12}>
-                        <Card bordered={false} style={{ borderLeft: '4px solid #17a2b8', marginBottom: '16px' }}>
+                        <Card className='card-progress' bordered={false} style={{ borderLeft: '4px solid #17a2b8', marginBottom: '16px'}}>
                             <Card.Meta
                                 title="Tổng quan tiến độ tuần"
                                 description={
