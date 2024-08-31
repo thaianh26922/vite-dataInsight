@@ -2,7 +2,6 @@ import React from 'react';
 import { Chart as ChartJS, RadialLinearScale, PointElement, ArcElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
 
-// Register necessary components, including ArcElement for PolarArea chart
 ChartJS.register(RadialLinearScale, PointElement, ArcElement, LineElement, Title, Tooltip, Legend);
 
 const DailyExpenseBreakdownChart = ({ dailyExpenses }) => {
