@@ -160,8 +160,14 @@ export default function ManageProduct() {
             <p><strong>Số lượng:</strong> {selectedProduct.quantity_in_stock || 'N/A'}</p>
             <p><strong>Số ngày trong kho:</strong> {calculateDaysInStock(selectedProduct.manufacture_date)}</p>
             <p><strong>Tồn kho hiện tại:</strong> {selectedProduct.stock || 'N/A'}</p>
-            <p><strong>Sản phẩm bán chạy số:</strong> {orderRankings[selectedProduct.name] ? ` ${orderRankings[selectedProduct.name]}` : 'N/A'}</p>
-          </div>
+            <p>
+              <strong>Sản phẩm bán chạy số:</strong>
+              {orderRankings[selectedProduct.name]
+                ? ` ${orderRankings[selectedProduct.name]} / ${filteredOrders.reduce(
+                  (acc, order) => acc + order.items.reduce((itemAcc, item) => itemAcc + (item.product === selectedProduct.name ? item.quantity : 0), 0), 0
+                )}`
+                : 'N/A'}
+            </p>          </div>
 
           {/* Doughnut Chart */}
           <div style={{ flex: 1 }}>
