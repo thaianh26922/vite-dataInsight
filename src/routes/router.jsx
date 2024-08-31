@@ -27,7 +27,7 @@ export default function ListRouter() {
 
     //     </Routes> 
         <Routes>
-        <Route path='/vite-dataInsight' element={<ProductionManagement />} />
+        <Route path='/vite-dataInsight' element={<AbnormalityReport />} />
         <Route path='/home' element={<Home />} />
         <Route path='/manageProduct' element={<ManageProduct />} />
         <Route path='/manageHuman' element={<ManageHuman />} />
@@ -36,7 +36,6 @@ export default function ListRouter() {
         <Route path='/manageProfit' element={<ManageProfit />} />
         <Route path='/manageSupplier' element={<ManageSupplier />} />
         <Route path='/manageWebsite' element={<ManageWebsite />} />
-        <Route path='/abnormalityReport' element={<AbnormalityReport />} />
 
     </Routes> 
     )
