@@ -11,7 +11,7 @@ function Header({OpenSidebar}) {
             <BsJustify className='icon' onClick={OpenSidebar}/>
         </div>
         <div className='header-left'>
-        <NavLink className='link-tag' to={'/'}>
+        <NavLink className='link-tag' to={'/vite-dataInsight'}>
 
             <h2>Admin Dashboard </h2>
         </NavLink>
