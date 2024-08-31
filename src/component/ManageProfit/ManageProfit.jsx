@@ -8,7 +8,6 @@ import { dailyData } from '../../data/revenue';
 const ManageProfit = () => {
   const [filteredDate, setFilteredDate] = useState(null);
 
-  
   const calculateDailyTotals = (data) => {
     const dailyRevenue = data.revenue.reduce((acc, record) => {
       acc[record.date] = acc[record.date] || { amount: 0, description: record.description };
@@ -52,11 +51,11 @@ const ManageProfit = () => {
 
   return (
     <div className='container-website' style={{ padding: '2%' }}>
-      <h2>Financial Dashboard</h2>
+      <h2>Bảng Điều Khiển Tài Chính</h2>
       
       <div style={{ marginBottom: 16 }}>
         <DatePicker onChange={date => setFilteredDate(date)} />
-        <Button onClick={() => setFilteredDate(null)} style={{ marginLeft: 8 }}>Clear Filter</Button>
+        <Button onClick={() => setFilteredDate(null)} style={{ marginLeft: 8 }}>Xóa Lọc</Button>
       </div>
       
       <Row gutter={16} style={{ marginBottom: 24 }}>
@@ -69,26 +68,26 @@ const ManageProfit = () => {
       </Row>
       
       <div>
-        <h3>Profit/Loss</h3>
-        <p>Profit/Loss: {isNaN(profitLoss) ? 'Data is insufficient for calculation' : (profitLoss >= 0 ? `Profit: $${profitLoss}` : `Loss: $${Math.abs(profitLoss)}`)}</p>
-        <p>Total Expenses: ${totalExpenses}</p>
+        <h3>Lợi Nhuận/Lỗ</h3>
+        <p>Lợi Nhuận/Lỗ: {isNaN(profitLoss) ? 'Dữ liệu không đủ để tính toán' : (profitLoss >= 0 ? `Lợi Nhuận: $${profitLoss}` : `Lỗ: $${Math.abs(profitLoss)}`)}</p>
+        <p>Tổng Chi Phí: ${totalExpenses}</p>
       </div>
       
       <div style={{ marginTop: 24 }}>
-        <h3>Daily Financial Data</h3>
+        <h3>Dữ Liệu Tài Chính Hàng Ngày</h3>
         <Table
           dataSource={mergedData}
           rowKey="date"
-          pagination={{ pageSize: 5 }} // Set pagination to show 5 records per page
+          pagination={{ pageSize: 5 }} // Đặt phân trang để hiển thị 5 bản ghi mỗi trang
           columns={[
-            { title: 'Date', dataIndex: 'date', key: 'date' },
-            { title: 'Revenue', dataIndex: 'amount', key: 'amount', render: amount => `$${amount}` },
-            { title: 'Revenue Description', dataIndex: 'revenueDescription', key: 'revenueDescription' },
-            { title: 'Salaries', dataIndex: 'salaries', key: 'salaries', render: salaries => `$${salaries}` },
-            { title: 'Materials', dataIndex: 'materials', key: 'materials', render: materials => `$${materials}` },
-            { title: 'Rent', dataIndex: 'rent', key: 'rent', render: rent => `$${rent}` },
-            { title: 'Maintenance', dataIndex: 'maintenance', key: 'maintenance', render: maintenance => `$${maintenance}` },
-            { title: 'Expense Description', dataIndex: 'expenseDescription', key: 'expenseDescription' },
+            { title: 'Ngày', dataIndex: 'date', key: 'date' },
+            { title: 'Doanh Thu', dataIndex: 'amount', key: 'amount', render: amount => `$${amount}` },
+            { title: 'Mô Tả Doanh Thu', dataIndex: 'revenueDescription', key: 'revenueDescription' },
+            { title: 'Lương', dataIndex: 'salaries', key: 'salaries', render: salaries => `$${salaries}` },
+            { title: 'Vật Tư', dataIndex: 'materials', key: 'materials', render: materials => `$${materials}` },
+            { title: 'Tiền Thuê', dataIndex: 'rent', key: 'rent', render: rent => `$${rent}` },
+            { title: 'Bảo Trì', dataIndex: 'maintenance', key: 'maintenance', render: maintenance => `$${maintenance}` },
+            { title: 'Mô Tả Chi Phí', dataIndex: 'expenseDescription', key: 'expenseDescription' },
           ]}
         />
       </div>

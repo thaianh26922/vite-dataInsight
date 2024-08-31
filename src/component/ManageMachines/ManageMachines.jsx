@@ -57,7 +57,7 @@ export default function ManageMachines() {
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
-          <Button onClick={() => handleViewPDF(record)}>Hướng dẫn sử dụng</Button>
+          <Button onClick={() => handleViewPDF(record)}>Xem hướng dẫn sử dụng</Button>
         </Space>
       ),
     },
@@ -108,12 +108,12 @@ export default function ManageMachines() {
       {/* Flex container for search input and filter button */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
         <Input
-          placeholder="Search by name"
+          placeholder="Tìm kiếm theo tên"
           onChange={(e) => handleSearch(e.target.value)}
           style={{ width: 300 }}
         />
         <Button type="primary" onClick={handleFilterByMaintenanceDate}>
-          Filter by Maintenance Date
+          Lọc theo ngày bảo trì
         </Button>
       </div>
 
@@ -128,7 +128,7 @@ export default function ManageMachines() {
       >
         {pdfUrl && (
           <div style={{ height: '500px' }}>
-            <iframe src={pdfUrl} width="100%" height="100%" title="PDF Viewer" />
+            <iframe src={pdfUrl} width="100%" height="100%" title="Xem PDF" />
           </div>
         )}
       </Modal>

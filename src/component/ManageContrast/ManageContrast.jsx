@@ -3,9 +3,7 @@ import { Table, Button, Modal } from 'antd';
 import { jsPDF } from 'jspdf';
 import { contrast } from '../../data/contracts';
 
-// Dữ liệu hợp đồng mẫu
-
-
+// Tạo PDF cho hợp đồng
 const generatePDF = (contract) => {
   const doc = new jsPDF();
 
@@ -74,40 +72,40 @@ export default function ManageContrast() {
 
   const columns = [
     {
-      title: 'Contract ID',
+      title: 'Số hợp đồng',
       dataIndex: 'contract_id',
       key: 'contract_id',
     },
     {
-      title: 'Contract Date',
+      title: 'Ngày hợp đồng',
       dataIndex: 'contract_date',
       key: 'contract_date',
     },
     {
-      title: 'Supplier',
+      title: 'Nhà cung cấp',
       dataIndex: 'supplier',
       key: 'supplier',
     },
     {
-      title: 'Product',
+      title: 'Sản phẩm',
       dataIndex: 'product',
       key: 'product',
     },
     {
-      title: 'Quantity',
+      title: 'Số lượng',
       dataIndex: 'quantity',
       key: 'quantity',
     },
     {
-      title: 'Total Value',
+      title: 'Tổng giá trị',
       dataIndex: 'total_value',
       key: 'total_value',
     },
     {
-      title: 'Action',
+      title: 'Hành động',
       key: 'action',
       render: (_, record) => (
-        <Button onClick={() => handleViewPDF(record)}>View PDF</Button>
+        <Button onClick={() => handleViewPDF(record)}>Xem PDF</Button>
       ),
     },
   ];
@@ -126,18 +124,18 @@ export default function ManageContrast() {
 
   return (
     <div className='container-website'>
-      <h2>Contract Management</h2>
+      <h2>Quản lý hợp đồng</h2>
       <Table columns={columns} dataSource={contrast} rowKey="id" />
 
       <Modal
-        title={`Contract ${selectedContract?.id}`}
+        title={`Hợp đồng ${selectedContract?.contract_id}`}
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
         width={800}
       >
         {pdfUrl && (
-          <iframe src={pdfUrl} width="100%" height="600px" title="PDF Viewer" />
+          <iframe src={pdfUrl} width="100%" height="600px" title="Xem PDF" />
         )}
       </Modal>
     </div>

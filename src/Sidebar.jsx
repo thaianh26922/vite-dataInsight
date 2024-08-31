@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 import {
-    BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill,
-    BsListCheck, BsMenuButtonWideFill, BsFillGearFill
-}
-    from 'react-icons/bs'
-import { NavLink } from 'react-router-dom'
+    BsPeopleFill, BsBoxSeam, BsFileText, BsListCheck, BsGlobe, BsCashCoin, BsFillGearFill
+} from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
     return (
@@ -20,24 +18,21 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageHuman'}>
                         <BsPeopleFill className='icon' /> Quản lý nhân sự
-
                     </NavLink>
                 </li>
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageProduct'}>
-                        <BsFillArchiveFill className='icon' /> Quản lý hàng hóa
+                        <BsBoxSeam className='icon' /> Quản lý hàng hóa
                     </NavLink>
-
                 </li>
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageMachines'}>
-                        <BsFillGrid3X3GapFill className='icon' /> Quản lý máy móc
+                        <BsFillGearFill className='icon' /> Quản lý máy móc
                     </NavLink>
-
                 </li>
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageContrast'}>
-                        <BsPeopleFill className='icon' /> Quản lý hợp đồng
+                        <BsFileText className='icon' /> Quản lý hợp đồng
                     </NavLink>
                 </li>
                 <li className='sidebar-list-item'>
@@ -47,17 +42,27 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
                 </li>
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageWebsite'}>
-                        <BsMenuButtonWideFill className='icon' /> Quản lý website
+                        <BsGlobe className='icon' /> Quản lý website
                     </NavLink>
                 </li>
                 <li className='sidebar-list-item'>
                     <NavLink to={'/manageProfit'}>
-                        <BsFillGearFill className='icon' /> Quản lý doanh thu
+                        <BsCashCoin className='icon' /> Quản lý doanh thu
+                    </NavLink>
+                </li>
+                <li className='sidebar-list-item'>
+                    <NavLink to={'/productionManagement'}>
+                        <BsFillGearFill className='icon' /> Quản lý dây chuyền sản xuất
+                    </NavLink>
+                </li>
+                <li className='sidebar-list-item'>
+                    <NavLink to={'/abnormalityReport'}>
+                        <BsFillGearFill className='icon' /> Quản lý phát sinh lỗi
                     </NavLink>
                 </li>
             </ul>
         </aside>
-    )
+    );
 }
 
-export default Sidebar
+export default Sidebar;

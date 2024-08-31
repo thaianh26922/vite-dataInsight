@@ -91,33 +91,33 @@ export default function ManageProduct() {
   // Columns for the orders table
   const columns = [
     {
-      title: 'Order ID',
+      title: 'Mã đơn hàng',
       dataIndex: 'order_id',
       key: 'order_id',
     },
     {
-      title: 'Dealer Name',
+      title: 'Tên đại lý',
       dataIndex: 'dealer_name',
       key: 'dealer_name',
     },
     {
-      title: 'Order Date',
+      title: 'Ngày đặt hàng',
       dataIndex: 'order_date',
       key: 'order_date',
     },
     {
-      title: 'Status',
+      title: 'Trạng thái',
       dataIndex: 'status',
       key: 'status',
     },
     {
-      title: 'Items',
+      title: 'Sản phẩm',
       dataIndex: 'items',
       key: 'items',
       render: (items) => (
         <ul>
           {items.map((item, index) => (
-            <li key={index}>{item.product} (Quantity: {item.quantity})</li>
+            <li key={index}>{item.product} (Số lượng: {item.quantity})</li>
           ))}
         </ul>
       ),
@@ -128,7 +128,7 @@ export default function ManageProduct() {
     <div className='container-website' style={{ padding: '20px' }}>
       {/* Select Product Dropdown */}
       <div style={{ marginBottom: '20px' }}>
-        <h2>Select a Product</h2>
+        <h2>Chọn sản phẩm</h2>
         <Select
           style={{ width: '100%' }}
           value={selectedProduct.name || ''}
@@ -147,21 +147,20 @@ export default function ManageProduct() {
 
       {/* Product Information Card with Doughnut Chart */}
       <Card
-        title="Product Information"
+        title="Thông tin sản phẩm"
         headStyle={{ backgroundColor: '#003366', color: '#ffffff' }} // Blue header background with white text
         style={{ width: '100%' }}
       >
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
           {/* Product Information */}
           <div style={{ flex: 1, marginRight: '20px' }}>
-            <p><strong>Name:</strong> {selectedProduct.name || 'N/A'}</p>
-            <p><strong>Type:</strong> {selectedProduct.type || 'N/A'}</p>
-            <p><strong>Manufacture Date:</strong> {selectedProduct.manufacture_date || 'N/A'}</p>
-            <p><strong>Quantity:</strong> {selectedProduct.quantity_in_stock || 'N/A'}</p>
-            <p><strong>Days in Stock:</strong> {calculateDaysInStock(selectedProduct.manufacture_date)}</p>
-            <p><strong>Current Stock:</strong> {selectedProduct.stock || 'N/A'}</p>
-            <p><strong>Sản phẩm được bán chạy số:</strong> {orderRankings[selectedProduct.name] ? ` ${orderRankings[selectedProduct.name]}` : 'N/A'}</p>
-
+            <p><strong>Tên sản phẩm:</strong> {selectedProduct.name || 'N/A'}</p>
+            <p><strong>Loại sản phẩm:</strong> {selectedProduct.type || 'N/A'}</p>
+            <p><strong>Ngày sản xuất:</strong> {selectedProduct.manufacture_date || 'N/A'}</p>
+            <p><strong>Số lượng:</strong> {selectedProduct.quantity_in_stock || 'N/A'}</p>
+            <p><strong>Số ngày trong kho:</strong> {calculateDaysInStock(selectedProduct.manufacture_date)}</p>
+            <p><strong>Tồn kho hiện tại:</strong> {selectedProduct.stock || 'N/A'}</p>
+            <p><strong>Sản phẩm bán chạy số:</strong> {orderRankings[selectedProduct.name] ? ` ${orderRankings[selectedProduct.name]}` : 'N/A'}</p>
           </div>
 
           {/* Doughnut Chart */}
@@ -197,7 +196,7 @@ export default function ManageProduct() {
 
       {/* Orders Table */}
       <div style={{ marginTop: '20px' }}>
-        <h2>Orders for {selectedProduct.name || 'N/A'}</h2>
+        <h2>Đơn hàng của {selectedProduct.name || 'N/A'}</h2>
         <Table
           columns={columns}
           dataSource={filteredOrders}
