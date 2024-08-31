@@ -1,11 +1,12 @@
 import React from 'react';
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, PointElement, ArcElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
 
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+// Register necessary components, including ArcElement for PolarArea chart
+ChartJS.register(RadialLinearScale, PointElement, ArcElement, LineElement, Title, Tooltip, Legend);
 
 const DailyExpenseBreakdownChart = ({ dailyExpenses }) => {
-  const dates = Object.keys(dailyExpenses);
+  const dates = Object.keys(dailyExpenses || {});
   const salaries = dates.map(date => dailyExpenses[date]?.salaries || 0);
   const materials = dates.map(date => dailyExpenses[date]?.materials || 0);
   const rent = dates.map(date => dailyExpenses[date]?.rent || 0);
