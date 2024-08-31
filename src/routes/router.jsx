@@ -12,26 +12,26 @@ import ManageWebsite from '../component/ManageWebsite/ManageWebsite';
 export default function ListRouter() {
     return (
         <Routes>
-            <Route path='/vite-dataInsight' element={<ManageProfit />} />
-                <Route path='/manageContrast' element={<ManageContrast />} />
-                <Route path='/manageMachines' element={<ManageMachines />} />
-                <Route path='/manageHuman' element={<ManageHuman />} />
-                <Route path='/manageProduct' element={<ManageProduct />} />
-                <Route path='/vite' element={<Home />} />
-                <Route path='/manageSupplier' element={<ManageSupplier />} />
-                <Route path='/manageWebsite' element={<ManageWebsite />} />
+            <Route path='/vite-dataInsight/' element={<Home />} />
+            <Route path='/manageProduct' element={<ManageProduct />} />
+            <Route path='/manageHuman' element={<ManageHuman />} />
+            <Route path='/manageMachines' element={<ManageMachines />} />
+            <Route path='/manageContrast' element={<ManageContrast />} />
+            <Route path='/vite-dataInsight/manageProfit' element={<ManageProfit />} />
+            <Route path='/manageSupplier' element={<ManageSupplier />} />
+            <Route path='/manageWebsite' element={<ManageWebsite />} />
 
         </Routes>
     )
 }
 {/* <Routes>
-<Route path='/vite-dataInsight' element={<Home />} />
-<Route path='/manageProduct' element={<ManageProduct />} />
-<Route path='/manageHuman' element={<ManageHuman />} />
-<Route path='/manageMachines' element={<ManageMachines />} />
-<Route path='/manageContrast' element={<ManageContrast />} />
-<Route path='/manageProfit' element={<ManageProfit />} />
-<Route path='/manageSupplier' element={<ManageSupplier />} />
-<Route path='/manageWebsite' element={<ManageWebsite />} />
+            <Route path='/vite-dataInsight' element={<Home />} />
+            <Route path='/manageProduct' element={<ManageProduct />} />
+            <Route path='/manageHuman' element={<ManageHuman />} />
+            <Route path='/manageMachines' element={<ManageMachines />} />
+            <Route path='/manageContrast' element={<ManageContrast />} />
+            <Route path='/manageProfit' element={<ManageProfit />} />
+            <Route path='/manageSupplier' element={<ManageSupplier />} />
+            <Route path='/manageWebsite' element={<ManageWebsite />} />
 
-</Routes> */}
+        </Routes> */}

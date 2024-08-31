@@ -51,7 +51,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
                     </NavLink>
                 </li>
                 <li className='sidebar-list-item'>
-                    <NavLink to={'/manageProfit'}>
+                    <NavLink to={'/vite-dataInsight/manageProfit'}>
                         <BsFillGearFill className='icon' /> Quản lý doanh thu
                     </NavLink>
                 </li>
