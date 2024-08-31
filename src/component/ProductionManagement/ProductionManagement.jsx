@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Progress, Badge, Button, Card, Row, Col, notification } from 'antd';
 import { Line, Bar } from 'react-chartjs-2';
-import 'chart.js/auto'; // Auto-register Chart.js components
+import 'chart.js/auto'; 
 
 const ProductionManagement = () => {
   const [productionPlan, setProductionPlan] = useState([]);
@@ -10,7 +10,6 @@ const ProductionManagement = () => {
   const [machineryData, setMachineryData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate production plan and machinery data
   useEffect(() => {
     const planData = [
       { id: 1, product: 'Kẹo A', quantity: 1000, status: 'Đã Lên Kế Hoạch', machine: 'Máy 1', currentMachine: 'Máy 2' },
@@ -43,7 +42,6 @@ const ProductionManagement = () => {
     setIsLoading(false);
   }, []);
 
-  // Notification function for production issues
   const openNotification = () => {
     notification.error({
       message: 'Lỗi Sản Xuất',
@@ -51,7 +49,6 @@ const ProductionManagement = () => {
     });
   };
 
-  // Chart data configuration for production progress
   const chartData = {
     labels: ['Đã Hoàn Thành', 'Đang Tiến Hành', 'Lỗi'],
     datasets: [
@@ -63,7 +60,6 @@ const ProductionManagement = () => {
     ]
   };
 
-  // Chart data configuration for quality control
   const qualityChartData = {
     labels: qualityData.map(item => item.product),
     datasets: [
@@ -82,7 +78,6 @@ const ProductionManagement = () => {
     ]
   };
 
-  // Columns for production plan table including machinery details
   const columns = [
     {
       title: 'Sản Phẩm',

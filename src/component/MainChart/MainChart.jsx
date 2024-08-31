@@ -1,49 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 import { CChartLine } from '@coreui/react-chartjs'
+import { CCol, CRow, CCard } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
 
-import {
-  CAvatar,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CTable,
-  CTableBody,
-  CTableDataCell,
-  CTableHead,
-  CTableHeaderCell,
-  CTableRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 const MainChart = () => {
   const progressExample = [
-    { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
-    { title: 'Unique', value: '24.093 Users', percent: 20, color: 'info' },
-    { title: 'Pageviews', value: '78.706 Views', percent: 60, color: 'warning' },
-    { title: 'New Users', value: '22.123 Users', percent: 80, color: 'danger' },
-    { title: 'Bounce Rate', value: 'Average Rate', percent: 40.15, color: 'primary' },
+    { title: 'Lượt truy cập', value: '29.703 Người dùng', percent: 40, color: 'success' },
+    { title: 'Người dùng mới', value: '24.093 Người dùng', percent: 20, color: 'info' },
+    { title: 'Lượt xem trang', value: '78.706 Lượt', percent: 60, color: 'warning' },
+    { title: 'Người dùng mới', value: '22.123 Người dùng', percent: 80, color: 'danger' },
+    { title: 'Tỷ lệ thoát', value: 'Tỷ lệ trung bình', percent: 40.15, color: 'primary' },
   ]
 
   const random = () => Math.round(Math.random() * 100)
 
   return (
     <>
-
       <CCard>
         <CChartLine
           style={{ height: '300px', marginTop: '40px' }}
           data={{
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7'],
             datasets: [
               {
-                label: 'My First dataset',
+                label: 'Dữ liệu đầu tiên',
                 borderColor: '#0074D9',
                 pointHoverBackgroundColor: '#0074D9',
                 borderWidth: 2,
@@ -59,17 +40,16 @@ const MainChart = () => {
                 fill: true,
               },
               {
-                label: 'My Second dataset',
-                backgroundColor: 'red',
+                label: 'Dữ liệu thứ hai',
+                backgroundColor: 'rgba(255, 0, 0, 0.5)',
                 borderColor: '#7CFC00',
                 pointHoverBackgroundColor: 'red',
                 borderWidth: 2,
                 data: [220, 65, 220, 220, 200, 65, 65],
-
               },
               {
-                label: 'My Third dataset',
-                backgroundColor: 'red',
+                label: 'Dữ liệu thứ ba',
+                backgroundColor: 'rgba(255, 165, 0, 0.5)',
                 borderColor: '#FFA07A',
                 pointHoverBackgroundColor: '#FFA07A',
                 borderWidth: 1,
@@ -90,15 +70,10 @@ const MainChart = () => {
                 grid: {
                   drawOnChartArea: false,
                 },
-                ticks: {
-                },
+                ticks: {},
               },
               y: {
                 beginAtZero: true,
-                border: {
-                },
-                grid: {
-                },
                 max: 250,
                 ticks: {
                   maxTicksLimit: 5,
@@ -120,25 +95,36 @@ const MainChart = () => {
           }}
         />
 
-        <CRow
-
-          className="box-progress"
-        >
-          {progressExample.map((item, index, items) => (
-            <CCol
-              className='progress'
-            >
-              <div className="text-body-secondary">{item.title}</div>
-              <div className="fw-semibold text-truncate">
+        <CRow className="box-progress" style={{ marginTop: '20px' }}>
+          {progressExample.map((item, index) => (
+            <CCol key={index} className="progress">
+              <div style={{ color: item.color }} className="text-body-secondary">{item.title}</div>
+              <div className="fw-semibold text-truncate" style={{ color: item.color }}>
                 {item.value} ({item.percent}%)
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  height: '5px',
+                  backgroundColor: '#e0e0e0',
+                  borderRadius: '5px',
+                  marginTop: '5px',
+                }}
+              >
+                <div
+                  style={{
+                    width: `${item.percent}%`,
+                    height: '100%',
+                    backgroundColor: getStyle(item.color),
+                    borderRadius: '5px',
+                  }}
+                />
               </div>
             </CCol>
           ))}
         </CRow>
       </CCard>
-
     </>
-
   )
 }
 
