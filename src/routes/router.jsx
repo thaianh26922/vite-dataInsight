@@ -12,14 +12,15 @@ import ManageWebsite from '../component/ManageWebsite/ManageWebsite';
 export default function ListRouter() {
     return (
         <Routes>
-            <Route path='/vite-dataInsight' element={<ManageProfit />} />
-            <Route path='/home' element={<Home />} />
+            <Route path='/vite-dataInsight' element={<ManageWebsite />} />
+
+            <Route path='/' element={<Home />} />
             <Route path='/manageProduct' element={<ManageProduct />} />
+            <Route path='/manageProfit' element={<ManageProfit />} />
             <Route path='/manageHuman' element={<ManageHuman />} />
             <Route path='/manageMachines' element={<ManageMachines />} />
             <Route path='/manageContrast' element={<ManageContrast />} />
             <Route path='/manageSupplier' element={<ManageSupplier />} />
-            <Route path='/manageWebsite' element={<ManageWebsite />} />
 
         </Routes>
     )
